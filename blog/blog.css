@@ -1,1 +1,507 @@
 
+/* ============================================================= */
+/* BLOG PAGE                                                     */
+/* ============================================================= */
+
+
+/* تنظیمات پایه */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family: "Vazirmatn", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #dbeafe 0%,
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #eef2ff
+        );
+
+    color: #111827;
+
+    /*
+     * چون هدر اصلی سایت fixed است
+     */
+
+    padding-top: 82px;
+
+}
+
+
+/* ============================================================= */
+/* BLOG CONTAINER                                                */
+/* ============================================================= */
+
+.blog-container {
+
+    max-width: 1050px;
+
+    margin: 50px auto;
+
+    padding: 20px;
+
+}
+
+
+.blog-post {
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.12),
+
+        0 5px 15px rgba(15, 23, 42, 0.05);
+
+}
+
+
+/* ============================================================= */
+/* HERO IMAGE                                                     */
+/* ============================================================= */
+
+.hero-image {
+
+    position: relative;
+
+    height: 460px;
+
+    overflow: hidden;
+
+}
+
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.6s ease;
+
+}
+
+
+.blog-post:hover
+.hero-image img {
+
+    transform: scale(1.04);
+
+}
+
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(15, 23, 42, 0.9),
+
+            rgba(15, 23, 42, 0.15),
+
+            transparent
+        );
+
+}
+
+
+.hero-title {
+
+    color: #ffffff;
+
+    max-width: 800px;
+
+}
+
+
+.hero-title span {
+
+    display: inline-block;
+
+    background: #2563eb;
+
+    padding: 7px 16px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.hero-title h1 {
+
+    margin: 0;
+
+    font-size: 38px;
+
+    line-height: 1.8;
+
+    font-weight: 800;
+
+}
+
+
+/* ============================================================= */
+/* BLOG CONTENT                                                   */
+/* ============================================================= */
+
+.blog-content {
+
+    padding: 50px;
+
+}
+
+
+.blog-content p {
+
+    font-size: 18px;
+
+    line-height: 2.3;
+
+    color: #4b5563;
+
+    text-align: justify;
+
+}
+
+
+.blog-content h2 {
+
+    position: relative;
+
+    margin-top: 55px;
+
+    margin-bottom: 22px;
+
+    padding-right: 18px;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    color: #111827;
+
+}
+
+
+.blog-content h2::before {
+
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+
+    top: 8px;
+
+    width: 5px;
+
+    height: 32px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #2563eb,
+            #60a5fa
+        );
+
+}
+
+
+.blog-content h3 {
+
+    margin-top: 35px;
+
+    margin-bottom: 12px;
+
+    font-size: 21px;
+
+    color: #1e3a8a;
+
+}
+
+
+/* ============================================================= */
+/* HIGHLIGHT BOX                                                  */
+/* ============================================================= */
+
+.highlight {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #dbeafe
+        );
+
+    border-right: 5px solid #2563eb;
+
+    border-radius: 18px;
+
+    padding: 25px 30px;
+
+    margin: 30px 0;
+
+    font-size: 18px;
+
+    line-height: 2.2;
+
+    color: #1e40af;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.08);
+
+}
+
+
+/* ============================================================= */
+/* LISTS                                                          */
+/* ============================================================= */
+
+.blog-content ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 25px 0;
+
+}
+
+
+.blog-content li {
+
+    position: relative;
+
+    padding: 13px 42px 13px 15px;
+
+    margin-bottom: 10px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+    font-size: 17px;
+
+    color: #374151;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.blog-content li::before {
+
+    content: "✓";
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 12px;
+
+    color: #2563eb;
+
+    font-weight: bold;
+
+}
+
+
+.blog-content li:hover {
+
+    transform: translateX(-5px);
+
+    background: #eff6ff;
+
+}
+
+
+/* ============================================================= */
+/* FAQ                                                            */
+/* ============================================================= */
+
+.faq-section {
+
+    margin-top: 60px;
+
+}
+
+
+.faq {
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 25px;
+
+    margin-top: 15px;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.faq:hover {
+
+    border-color: #93c5fd;
+
+    box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.08);
+
+    transform: translateY(-3px);
+
+}
+
+
+.faq h3 {
+
+    margin-top: 0;
+
+    color: #111827;
+
+    font-size: 19px;
+
+}
+
+
+.faq p {
+
+    margin-bottom: 0;
+
+    font-size: 16px;
+
+}
+
+
+/* ============================================================= */
+/* RESPONSIVE                                                     */
+/* ============================================================= */
+
+@media (max-width: 768px) {
+
+
+    body {
+
+        padding-top: 72px;
+
+    }
+
+
+    .blog-container {
+
+        margin: 20px auto;
+
+        padding: 12px;
+
+    }
+
+
+    .blog-post {
+
+        border-radius: 20px;
+
+    }
+
+
+    .hero-image {
+
+        height: 300px;
+
+    }
+
+
+    .hero-overlay {
+
+        padding: 25px;
+
+    }
+
+
+    .hero-title h1 {
+
+        font-size: 25px;
+
+        line-height: 1.8;
+
+    }
+
+
+    .blog-content {
+
+        padding: 25px 20px;
+
+    }
+
+
+    .blog-content h2 {
+
+        font-size: 23px;
+
+        margin-top: 40px;
+
+    }
+
+
+    .blog-content p {
+
+        font-size: 16px;
+
+        line-height: 2.2;
+
+    }
+
+
+    .highlight {
+
+        padding: 20px;
+
+        font-size: 16px;
+
+    }
+
+
+    .blog-content li {
+
+        font-size: 15px;
+
+    }
+
+}
