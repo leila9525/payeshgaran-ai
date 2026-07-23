@@ -1,115 +1,282 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO -->
-    <title>هوشمندسازی دوربین مداربسته | افزایش امنیت با هوش مصنوعی | پایشگران</title>
+    <title>هوشمندسازی دوربین مداربسته | پایشگران</title>
 
-    <meta name="description" content="هوشمندسازی دوربین‌های مداربسته با قابلیت‌هایی مانند تشخیص چهره، پلاک‌خوانی، تشخیص حرکت و تحلیل هوشمند تصاویر برای افزایش امنیت و کنترل بهتر محیط.">
+    <meta name="description"
+        content="هوشمندسازی دوربین‌های مداربسته با قابلیت‌هایی مانند تشخیص چهره، پلاک‌خوانی، تشخیص حرکت و تحلیل هوشمند تصاویر.">
 
-    <meta name="keywords" content="هوشمندسازی دوربین مداربسته, دوربین مداربسته هوشمند, هوش مصنوعی دوربین مداربسته, پلاک خوان, تشخیص چهره, سیستم نظارت تصویری هوشمند">
+    <!-- فونت Vazirmatn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            font-family: Tahoma, Arial, sans-serif;
-            background: #f5f7fa;
-            color: #222;
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-dark: #111827;
+            --text-light: #4b5563;
+            --background: #f1f5f9;
+            --white: #ffffff;
         }
 
+        body {
+            margin: 0;
+            font-family: "Vazirmatn", sans-serif;
+            background:
+                radial-gradient(circle at top right, #dbeafe 0%, transparent 35%),
+                linear-gradient(135deg, #f8fafc, #eef2ff);
+            color: var(--text-dark);
+        }
+
+        /* کانتینر اصلی */
         .blog-container {
-            max-width: 1000px;
-            margin: 50px auto;
+            max-width: 1050px;
+            margin: 60px auto;
             padding: 20px;
         }
 
+        /* کارت مقاله */
         .blog-post {
-            background: #ffffff;
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 25px 60px rgba(15, 23, 42, 0.12),
+                0 5px 15px rgba(15, 23, 42, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
 
-        .blog-post img {
+        /* بخش تصویر */
+        .hero-image {
+            position: relative;
+            height: 460px;
+            overflow: hidden;
+        }
+
+        .hero-image img {
             width: 100%;
-            height: 420px;
+            height: 100%;
             object-fit: cover;
             display: block;
+            transition: transform 0.6s ease;
         }
 
-        .blog-content {
+        .blog-post:hover .hero-image img {
+            transform: scale(1.04);
+        }
+
+        /* لایه روی تصویر */
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(15, 23, 42, 0.85),
+                    rgba(15, 23, 42, 0.15),
+                    transparent
+                );
+            display: flex;
+            align-items: flex-end;
             padding: 40px;
         }
 
-        .blog-content h1 {
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-size: 34px;
-            line-height: 1.8;
-            color: #111827;
+        .hero-title {
+            color: white;
+            max-width: 800px;
         }
 
-        .blog-content h2 {
-            margin-top: 40px;
+        .hero-title span {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.9);
+            padding: 7px 16px;
+            border-radius: 30px;
+            font-size: 14px;
             margin-bottom: 15px;
-            font-size: 26px;
-            color: #1f2937;
-            border-right: 5px solid #2563eb;
-            padding-right: 12px;
         }
 
-        .blog-content h3 {
-            margin-top: 30px;
-            font-size: 21px;
-            color: #374151;
+        .hero-title h1 {
+            margin: 0;
+            font-size: 38px;
+            line-height: 1.8;
+            font-weight: 800;
+        }
+
+        /* محتوای مقاله */
+        .blog-content {
+            padding: 50px;
         }
 
         .blog-content p {
             font-size: 18px;
-            line-height: 2.2;
-            color: #4b5563;
+            line-height: 2.3;
+            color: var(--text-light);
             text-align: justify;
         }
 
-        .blog-content ul {
-            padding-right: 25px;
-            line-height: 2.4;
+        /* پاراگراف اول */
+        .blog-content > p:first-of-type {
+            font-size: 20px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        /* تیترها */
+        .blog-content h2 {
+            position: relative;
+            margin-top: 55px;
+            margin-bottom: 22px;
+            padding-right: 18px;
+            font-size: 27px;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .blog-content h2::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 5px;
+            height: 32px;
+            border-radius: 10px;
+            background: linear-gradient(
+                to bottom,
+                var(--primary),
+                #60a5fa
+            );
+        }
+
+        .blog-content h3 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            font-size: 21px;
+            color: #1e3a8a;
+            font-weight: 700;
+        }
+
+        /* باکس برجسته */
+        .highlight {
+            position: relative;
+            background:
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #dbeafe
+                );
+            border: 1px solid #bfdbfe;
+            border-radius: 18px;
+            padding: 25px 30px;
+            margin: 30px 0;
             font-size: 18px;
-            color: #4b5563;
+            line-height: 2.2;
+            color: #1e40af;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+        }
+
+        .highlight::before {
+            content: "✦";
+            font-size: 28px;
+            margin-left: 10px;
+            color: var(--primary);
+        }
+
+        /* لیست‌ها */
+        .blog-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 25px 0;
         }
 
         .blog-content li {
-            margin-bottom: 8px;
+            position: relative;
+            padding: 13px 42px 13px 15px;
+            margin-bottom: 10px;
+            background: #f8fafc;
+            border-radius: 12px;
+            font-size: 17px;
+            color: #374151;
+            transition: all 0.3s ease;
         }
 
-        .highlight {
+        .blog-content li::before {
+            content: "✓";
+            position: absolute;
+            right: 15px;
+            top: 12px;
+            width: 23px;
+            height: 23px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #dbeafe;
+            color: var(--primary);
+            border-radius: 50%;
+            font-weight: bold;
+        }
+
+        .blog-content li:hover {
+            transform: translateX(-5px);
             background: #eff6ff;
-            border-right: 5px solid #2563eb;
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 10px;
-            line-height: 2.2;
-            font-size: 18px;
+        }
+
+        /* سوالات متداول */
+        .faq-section {
+            margin-top: 60px;
         }
 
         .faq {
-            background: #f9fafb;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .faq:hover {
+            border-color: #93c5fd;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+            transform: translateY(-3px);
         }
 
         .faq h3 {
             margin-top: 0;
-            color: #111827;
+            color: var(--text-dark);
+            font-size: 19px;
         }
 
+        .faq p {
+            margin-bottom: 0;
+            font-size: 16px;
+        }
+
+        /* جداکننده */
+        .divider {
+            height: 1px;
+            background: linear-gradient(
+                to left,
+                transparent,
+                #dbeafe,
+                transparent
+            );
+            margin: 50px 0;
+        }
+
+        /* ریسپانسیو موبایل */
         @media (max-width: 768px) {
 
             .blog-container {
@@ -117,27 +284,51 @@
                 padding: 12px;
             }
 
-            .blog-post img {
-                height: 250px;
+            .blog-post {
+                border-radius: 20px;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .hero-overlay {
+                padding: 25px;
+            }
+
+            .hero-title h1 {
+                font-size: 25px;
+                line-height: 1.8;
             }
 
             .blog-content {
-                padding: 22px;
-            }
-
-            .blog-content h1 {
-                font-size: 26px;
+                padding: 25px 20px;
             }
 
             .blog-content h2 {
-                font-size: 22px;
+                font-size: 23px;
+                margin-top: 40px;
             }
 
-            .blog-content p,
-            .blog-content ul {
+            .blog-content p {
+                font-size: 16px;
+                line-height: 2.2;
+            }
+
+            .blog-content > p:first-of-type {
+                font-size: 17px;
+            }
+
+            .highlight {
+                padding: 20px;
                 font-size: 16px;
             }
+
+            .blog-content li {
+                font-size: 15px;
+            }
         }
+
     </style>
 </head>
 
@@ -147,30 +338,48 @@
 
         <article class="blog-post">
 
-            <!-- تصویر مقاله -->
-            <img 
-                src="blogimage.png" 
-                alt="هوشمندسازی دوربین مداربسته با هوش مصنوعی"
-            >
+            <!-- تصویر اصلی مقاله -->
+            <div class="hero-image">
+
+                <img
+                    src="blogimage.png"
+                    alt="هوشمندسازی دوربین مداربسته با هوش مصنوعی">
+
+                <div class="hero-overlay">
+
+                    <div class="hero-title">
+
+                        <span>مقاله آموزشی پایشگران</span>
+
+                        <h1>
+                            هوشمندسازی دوربین مداربسته؛
+                            امنیتی هوشمند با قدرت هوش مصنوعی
+                        </h1>
+
+                    </div>
+
+                </div>
+
+            </div>
 
             <!-- محتوای مقاله -->
             <div class="blog-content">
 
-                <h1>
-                    هوشمندسازی دوربین مداربسته؛ امنیتی هوشمند با قدرت هوش مصنوعی
-                </h1>
-
                 <div class="highlight">
-                    امروزه دوربین‌های مداربسته تنها برای ضبط تصاویر استفاده نمی‌شوند. 
+
+                    امروزه دوربین‌های مداربسته تنها برای ضبط تصاویر استفاده نمی‌شوند.
                     با استفاده از هوش مصنوعی و فناوری تحلیل تصویر، می‌توان دوربین‌های مداربسته را به یک سیستم امنیتی هوشمند و قدرتمند تبدیل کرد.
+
                 </div>
 
                 <p>
-                    امروزه استفاده از دوربین‌های مداربسته به یکی از مهم‌ترین روش‌های افزایش امنیت در منازل، شرکت‌ها، فروشگاه‌ها، کارخانه‌ها و سازمان‌ها تبدیل شده است. اما با پیشرفت فناوری، دوربین‌های مداربسته دیگر تنها برای ضبط و نمایش تصاویر مورد استفاده قرار نمی‌گیرند.
+                    امروزه استفاده از دوربین‌های مداربسته به یکی از مهم‌ترین روش‌های افزایش امنیت در منازل، شرکت‌ها، فروشگاه‌ها، کارخانه‌ها و سازمان‌ها تبدیل شده است.
+                    اما با پیشرفت فناوری، دوربین‌های مداربسته دیگر تنها برای ضبط و نمایش تصاویر مورد استفاده قرار نمی‌گیرند.
                 </p>
 
                 <p>
-                    هوشمندسازی دوربین مداربسته با استفاده از هوش مصنوعی و تحلیل هوشمند تصاویر، امکان شناسایی و بررسی خودکار رویدادهای مختلف را فراهم می‌کند. این فناوری به سیستم امنیتی کمک می‌کند تا اتفاقات مهم را شناسایی کرده و در زمان مناسب هشدار ارسال کند.
+                    هوشمندسازی دوربین مداربسته با استفاده از هوش مصنوعی و تحلیل هوشمند تصاویر، امکان شناسایی و بررسی خودکار رویدادهای مختلف را فراهم می‌کند.
+                    این فناوری به سیستم امنیتی کمک می‌کند تا اتفاقات مهم را شناسایی کرده و در زمان مناسب هشدار ارسال کند.
                 </p>
 
                 <h2>
@@ -182,7 +391,8 @@
                 </p>
 
                 <p>
-                    در سیستم‌های سنتی، دوربین تنها تصاویر را ضبط می‌کند؛ اما در سیستم‌های هوشمند، تصاویر به‌صورت خودکار تحلیل می‌شوند. به عنوان مثال، سیستم می‌تواند تشخیص دهد که یک فرد وارد محدوده ممنوعه شده، خودرویی از مسیر مشخصی عبور کرده یا فردی در یک منطقه خاص توقف کرده است.
+                    در سیستم‌های سنتی، دوربین تنها تصاویر را ضبط می‌کند؛ اما در سیستم‌های هوشمند، تصاویر به‌صورت خودکار تحلیل می‌شوند.
+                    سیستم می‌تواند تشخیص دهد که یک فرد وارد محدوده ممنوعه شده، خودرویی از مسیر مشخصی عبور کرده یا فردی در یک منطقه خاص توقف کرده است.
                 </p>
 
                 <h2>
@@ -194,7 +404,8 @@
                 </h3>
 
                 <p>
-                    یکی از مهم‌ترین قابلیت‌های سیستم‌های هوشمند، تشخیص دقیق حرکت افراد و وسایل نقلیه است. این فناوری می‌تواند حرکت واقعی انسان یا خودرو را از حرکات محیطی مانند حرکت درختان، حیوانات و تغییرات نور تشخیص دهد.
+                    یکی از مهم‌ترین قابلیت‌های سیستم‌های هوشمند، تشخیص دقیق حرکت افراد و وسایل نقلیه است.
+                    این فناوری می‌تواند حرکت واقعی انسان یا خودرو را از حرکات محیطی مانند حرکت درختان، حیوانات و تغییرات نور تشخیص دهد.
                 </p>
 
                 <h3>
@@ -202,7 +413,8 @@
                 </h3>
 
                 <p>
-                    با استفاده از دوربین‌های هوشمند می‌توان محدوده‌های مشخصی را به عنوان مناطق ممنوعه تعریف کرد. در صورت ورود فرد یا خودرو به این محدوده، سیستم به صورت خودکار هشدار ارسال می‌کند.
+                    با استفاده از دوربین‌های هوشمند می‌توان محدوده‌های مشخصی را به عنوان مناطق ممنوعه تعریف کرد.
+                    در صورت ورود فرد یا خودرو به این محدوده، سیستم به صورت خودکار هشدار ارسال می‌کند.
                 </p>
 
                 <h3>
@@ -210,7 +422,8 @@
                 </h3>
 
                 <p>
-                    فناوری تشخیص چهره یکی از قابلیت‌های پیشرفته در هوشمندسازی دوربین‌های مداربسته است. این سیستم می‌تواند چهره افراد را شناسایی کرده و در صورت تطبیق با اطلاعات ثبت شده، عملیات مورد نظر را انجام دهد.
+                    فناوری تشخیص چهره یکی از قابلیت‌های پیشرفته در هوشمندسازی دوربین‌های مداربسته است.
+                    این سیستم می‌تواند چهره افراد را شناسایی کرده و در صورت تطبیق با اطلاعات ثبت شده، عملیات مورد نظر را انجام دهد.
                 </p>
 
                 <h3>
@@ -218,7 +431,8 @@
                 </h3>
 
                 <p>
-                    دوربین‌های پلاک‌خوان می‌توانند پلاک خودروها را شناسایی و ثبت کنند. این قابلیت برای کنترل تردد در پارکینگ‌ها، مجتمع‌های مسکونی، کارخانه‌ها و سازمان‌ها کاربرد فراوانی دارد.
+                    دوربین‌های پلاک‌خوان می‌توانند پلاک خودروها را شناسایی و ثبت کنند.
+                    این قابلیت برای کنترل تردد در پارکینگ‌ها، مجتمع‌های مسکونی، کارخانه‌ها و سازمان‌ها کاربرد فراوانی دارد.
                 </p>
 
                 <h3>
@@ -226,7 +440,8 @@
                 </h3>
 
                 <p>
-                    سیستم‌های هوشمند قادر هستند تعداد افراد یا خودروهای وارد شده و خارج شده از یک محیط را شمارش کنند. این قابلیت در فروشگاه‌ها، مراکز تجاری، نمایشگاه‌ها و پارکینگ‌ها بسیار کاربردی است.
+                    سیستم‌های هوشمند قادر هستند تعداد افراد یا خودروهای وارد شده و خارج شده از یک محیط را شمارش کنند.
+                    این قابلیت در فروشگاه‌ها، مراکز تجاری، نمایشگاه‌ها و پارکینگ‌ها بسیار کاربردی است.
                 </p>
 
                 <h2>
@@ -272,11 +487,15 @@
                 </p>
 
                 <p>
-                    اما در سیستم‌های هوشمند، نرم‌افزار و هوش مصنوعی تصاویر را به صورت خودکار تحلیل می‌کنند. بنابراین در صورت مشاهده یک رویداد مهم، سیستم می‌تواند در کوتاه‌ترین زمان ممکن هشدار دهد.
+                    اما در سیستم‌های هوشمند، نرم‌افزار و هوش مصنوعی تصاویر را به صورت خودکار تحلیل می‌کنند.
+                    بنابراین در صورت مشاهده یک رویداد مهم، سیستم می‌تواند در کوتاه‌ترین زمان ممکن هشدار دهد.
                 </p>
 
                 <div class="highlight">
-                    دوربین معمولی فقط تصویر را ثبت می‌کند؛ اما دوربین هوشمند می‌تواند تصویر را تحلیل کرده و رویدادهای مهم را شناسایی کند.
+
+                    دوربین معمولی فقط تصویر را ثبت می‌کند؛
+                    اما دوربین هوشمند می‌تواند تصویر را تحلیل کرده و رویدادهای مهم را شناسایی کند.
+
                 </div>
 
                 <h2>
@@ -291,55 +510,64 @@
                     هوشمندسازی دوربین مداربسته به شما کمک می‌کند تا به جای مشاهده مداوم تصاویر، سیستم به صورت خودکار رویدادهای مهم را شناسایی کند و در زمان مناسب اطلاع‌رسانی نماید.
                 </p>
 
+                <div class="divider"></div>
+
                 <h2>
                     جمع‌بندی
                 </h2>
 
                 <p>
-                    هوشمندسازی دوربین مداربسته یکی از بهترین راهکارها برای افزایش امنیت و کنترل بهتر محیط است. با استفاده از فناوری هوش مصنوعی و تحلیل تصاویر، می‌توان قابلیت‌هایی مانند تشخیص حرکت، تشخیص چهره، پلاک‌خوانی، شمارش افراد و شناسایی ورود غیرمجاز را به سیستم نظارت تصویری اضافه کرد.
+                    هوشمندسازی دوربین مداربسته یکی از بهترین راهکارها برای افزایش امنیت و کنترل بهتر محیط است.
+                    با استفاده از فناوری هوش مصنوعی و تحلیل تصاویر، می‌توان قابلیت‌هایی مانند تشخیص حرکت، تشخیص چهره، پلاک‌خوانی، شمارش افراد و شناسایی ورود غیرمجاز را به سیستم نظارت تصویری اضافه کرد.
                 </p>
 
                 <p>
-                    اگر قصد دارید سیستم دوربین مداربسته مجموعه خود را ارتقا دهید، انتخاب تجهیزات مناسب و اجرای اصولی سیستم هوشمند اهمیت زیادی دارد. یک سیستم نظارت تصویری هوشمند می‌تواند امنیت، کنترل و مدیریت محیط شما را به شکل قابل توجهی بهبود دهد.
+                    اگر قصد دارید سیستم دوربین مداربسته مجموعه خود را ارتقا دهید، انتخاب تجهیزات مناسب و اجرای اصولی سیستم هوشمند اهمیت زیادی دارد.
+                    یک سیستم نظارت تصویری هوشمند می‌تواند امنیت، کنترل و مدیریت محیط شما را به شکل قابل توجهی بهبود دهد.
                 </p>
 
-                <h2>
-                    سوالات متداول درباره هوشمندسازی دوربین مداربسته
-                </h2>
+                <div class="faq-section">
 
-                <div class="faq">
+                    <h2>
+                        سوالات متداول درباره هوشمندسازی دوربین مداربسته
+                    </h2>
 
-                    <h3>
-                        هوشمندسازی دوربین مداربسته چیست؟
-                    </h3>
+                    <div class="faq">
 
-                    <p>
-                        هوشمندسازی به استفاده از هوش مصنوعی و نرم‌افزارهای تحلیل تصویر برای شناسایی خودکار افراد، خودروها و رویدادهای مختلف در تصاویر دوربین گفته می‌شود.
-                    </p>
+                        <h3>
+                            هوشمندسازی دوربین مداربسته چیست؟
+                        </h3>
 
-                </div>
+                        <p>
+                            هوشمندسازی به استفاده از هوش مصنوعی و نرم‌افزارهای تحلیل تصویر برای شناسایی خودکار افراد، خودروها و رویدادهای مختلف در تصاویر دوربین گفته می‌شود.
+                        </p>
 
-                <div class="faq">
+                    </div>
 
-                    <h3>
-                        آیا می‌توان دوربین‌های مداربسته قدیمی را هوشمند کرد؟
-                    </h3>
+                    <div class="faq">
 
-                    <p>
-                        در بسیاری از پروژه‌ها امکان ارتقای سیستم موجود با استفاده از تجهیزات و نرم‌افزارهای مناسب وجود دارد. امکان انجام این کار به نوع دوربین، دستگاه ضبط و زیرساخت سیستم بستگی دارد.
-                    </p>
+                        <h3>
+                            آیا می‌توان دوربین‌های مداربسته قدیمی را هوشمند کرد؟
+                        </h3>
 
-                </div>
+                        <p>
+                            در بسیاری از پروژه‌ها امکان ارتقای سیستم موجود با استفاده از تجهیزات و نرم‌افزارهای مناسب وجود دارد.
+                            امکان انجام این کار به نوع دوربین، دستگاه ضبط و زیرساخت سیستم بستگی دارد.
+                        </p>
 
-                <div class="faq">
+                    </div>
 
-                    <h3>
-                        مهم‌ترین قابلیت دوربین‌های هوشمند چیست؟
-                    </h3>
+                    <div class="faq">
 
-                    <p>
-                        تشخیص حرکت، تشخیص چهره، پلاک‌خوانی، تشخیص ورود غیرمجاز، شمارش افراد و تحلیل هوشمند تصاویر از مهم‌ترین قابلیت‌های این سیستم‌ها هستند.
-                    </p>
+                        <h3>
+                            مهم‌ترین قابلیت دوربین‌های هوشمند چیست؟
+                        </h3>
+
+                        <p>
+                            تشخیص حرکت، تشخیص چهره، پلاک‌خوانی، تشخیص ورود غیرمجاز، شمارش افراد و تحلیل هوشمند تصاویر از مهم‌ترین قابلیت‌های این سیستم‌ها هستند.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -350,4 +578,5 @@
     </main>
 
 </body>
+
 </html>
