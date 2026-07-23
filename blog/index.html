@@ -11,6 +11,13 @@
         هوشمندسازی دوربین مداربسته | پایشگران هوشمند امن
     </title>
 
+    <meta
+        name="description"
+        content="هوشمندسازی دوربین‌های مداربسته با استفاده از هوش مصنوعی، تشخیص چهره، پلاک‌خوانی و تحلیل هوشمند تصاویر."
+    >
+
+    <!-- Vazirmatn -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +27,8 @@
         rel="stylesheet"
     >
 
+    <!-- CSS -->
+
     <link rel="stylesheet" href="blog.css">
 
 </head>
@@ -28,26 +37,26 @@
 <body>
 
 
-    <!-- ============================================================= -->
-    <!-- هدر اصلی سایت                                                -->
-    <!-- ============================================================= -->
+    <!-- ========================================================= -->
+    <!-- HEADER                                                     -->
+    <!-- ========================================================= -->
 
-    <header class="navbar" id="navbar">
+    <header class="blog-header">
 
-        <div class="container nav-inner">
+        <div class="blog-header-inner">
 
 
-            <!-- لوگو -->
+            <!-- LOGO -->
 
-            <a href="/" class="brand">
+            <a href="/" class="blog-brand">
 
                 <img
                     src="../assets/logo/logo.png"
                     alt="لوگوی پایشگران هوشمند امن"
-                    class="brand-logo"
+                    class="blog-brand-logo"
                 >
 
-                <span class="brand-text">
+                <div class="blog-brand-text">
 
                     <strong>
                         پایشگران هوشمند امن
@@ -57,14 +66,14 @@
                         هوش مصنوعی نگهبان امنیت شما
                     </small>
 
-                </span>
+                </div>
 
             </a>
 
 
-            <!-- منوی سایت -->
+            <!-- DESKTOP MENU -->
 
-            <nav class="nav-links" id="navLinks">
+            <nav class="blog-navigation" id="blogNavigation">
 
                 <a href="/">
                     خانه
@@ -86,7 +95,10 @@
                     سوالات متداول
                 </a>
 
-                <a href="/blog/" class="active">
+                <a
+                    href="/blog/"
+                    class="blog-navigation-active"
+                >
                     وبلاگ
                 </a>
 
@@ -97,11 +109,11 @@
             </nav>
 
 
-            <!-- دکمه منوی موبایل -->
+            <!-- MOBILE BUTTON -->
 
             <button
-                class="menu-toggle"
-                id="menuToggle"
+                class="blog-menu-button"
+                id="blogMenuButton"
                 aria-label="باز کردن منو"
                 aria-expanded="false"
             >
@@ -119,29 +131,30 @@
     </header>
 
 
-    <!-- ============================================================= -->
-    <!-- مقاله وبلاگ                                                  -->
-    <!-- ============================================================= -->
+    <!-- ========================================================= -->
+    <!-- BLOG                                                       -->
+    <!-- ========================================================= -->
 
-    <main class="blog-container">
-
-        <article class="blog-post">
+    <main class="blog-page">
 
 
-            <!-- تصویر اصلی مقاله -->
+        <article class="blog-article">
 
-            <div class="hero-image">
+
+            <!-- HERO -->
+
+            <div class="blog-hero">
 
                 <img
                     src="blogimage.png"
                     alt="هوشمندسازی دوربین مداربسته با هوش مصنوعی"
                 >
 
-                <div class="hero-overlay">
+                <div class="blog-hero-overlay">
 
-                    <div class="hero-title">
+                    <div class="blog-hero-content">
 
-                        <span>
+                        <span class="blog-label">
                             مقاله آموزشی پایشگران
                         </span>
 
@@ -157,12 +170,12 @@
             </div>
 
 
-            <!-- محتوای مقاله -->
+            <!-- ARTICLE CONTENT -->
 
             <div class="blog-content">
 
 
-                <div class="highlight">
+                <div class="blog-highlight">
 
                     امروزه دوربین‌های مداربسته تنها برای ضبط تصاویر استفاده نمی‌شوند.
                     با استفاده از هوش مصنوعی و فناوری تحلیل تصویر، می‌توان دوربین‌های مداربسته را به یک سیستم امنیتی هوشمند و قدرتمند تبدیل کرد.
@@ -261,7 +274,7 @@
                 </h2>
 
 
-                <ul>
+                <ul class="blog-list">
 
                     <li>
                         افزایش امنیت محیط
@@ -302,7 +315,7 @@
                 </p>
 
 
-                <ul>
+                <ul class="blog-list">
 
                     <li>
                         منازل و ساختمان‌های مسکونی
@@ -354,7 +367,7 @@
                 </p>
 
 
-                <div class="highlight">
+                <div class="blog-highlight">
 
                     دوربین معمولی فقط تصویر را ثبت می‌کند؛
                     اما دوربین هوشمند می‌تواند تصویر را تحلیل کرده و رویدادهای مهم را شناسایی کند.
@@ -393,14 +406,14 @@
                 </p>
 
 
-                <section class="faq-section">
+                <section class="blog-faq">
 
                     <h2>
                         سوالات متداول درباره هوشمندسازی دوربین مداربسته
                     </h2>
 
 
-                    <div class="faq">
+                    <div class="blog-faq-item">
 
                         <h3>
                             هوشمندسازی دوربین مداربسته چیست؟
@@ -415,7 +428,7 @@
                     </div>
 
 
-                    <div class="faq">
+                    <div class="blog-faq-item">
 
                         <h3>
                             آیا دوربین‌های قدیمی را می‌توان هوشمند کرد؟
@@ -430,7 +443,7 @@
                     </div>
 
 
-                    <div class="faq">
+                    <div class="blog-faq-item">
 
                         <h3>
                             مهم‌ترین قابلیت دوربین‌های هوشمند چیست؟
@@ -454,28 +467,36 @@
     </main>
 
 
-    <!-- اسکریپت منوی موبایل -->
+    <!-- ========================================================= -->
+    <!-- JAVASCRIPT                                                 -->
+    <!-- ========================================================= -->
 
     <script>
 
-        const menuToggle =
-            document.getElementById("menuToggle");
+        const blogMenuButton =
+            document.getElementById("blogMenuButton");
 
 
-        const navLinks =
-            document.getElementById("navLinks");
+        const blogNavigation =
+            document.getElementById("blogNavigation");
 
 
-        menuToggle.addEventListener(
+        blogMenuButton.addEventListener(
             "click",
             function () {
 
-                navLinks.classList.toggle("active");
+                blogNavigation.classList.toggle(
+                    "blog-navigation-open"
+                );
+
 
                 const isOpen =
-                    navLinks.classList.contains("active");
+                    blogNavigation.classList.contains(
+                        "blog-navigation-open"
+                    );
 
-                menuToggle.setAttribute(
+
+                blogMenuButton.setAttribute(
                     "aria-expanded",
                     isOpen
                 );
@@ -485,16 +506,18 @@
 
 
         document
-            .querySelectorAll(".nav-links a")
+            .querySelectorAll(".blog-navigation a")
             .forEach(function (link) {
 
                 link.addEventListener(
                     "click",
                     function () {
 
-                        navLinks.classList.remove("active");
+                        blogNavigation.classList.remove(
+                            "blog-navigation-open"
+                        );
 
-                        menuToggle.setAttribute(
+                        blogMenuButton.setAttribute(
                             "aria-expanded",
                             "false"
                         );
