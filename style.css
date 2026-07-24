@@ -521,7 +521,8 @@ a { text-decoration: none; color: inherit; }
     overflow: hidden;
     transition: max-height .35s ease;
   }
-  .nav-links.open { max-height: 340px; }
+  .nav-links.open { max-height: calc(100vh - 74px);
+    overflow-y: auto; }
   .nav-links a { padding: 13px 0; border-bottom: 1px solid var(--line); }
   .nav-links a.active::after { display: none; }
   .nav-toggle { display: flex; }
