@@ -540,3 +540,48 @@ a { text-decoration: none; color: inherit; }
   .gallery-item { flex: 0 0 85%; }
   .hero-buttons .btn { flex: 1; }
 }
+/* AI Detection Showcase */
+.detection-showcase {
+  padding: 35px 0 20px;
+  background: linear-gradient(180deg, #f4f7fc, #eef4ff);
+}
+
+.detection-image {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #e2eaf7;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(20, 40, 80, 0.13);
+  overflow: hidden;
+}
+
+.detection-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  object-fit: contain;
+  transition: transform .4s ease;
+}
+
+.detection-image:hover img {
+  transform: scale(1.015);
+}
+
+@media (max-width: 720px) {
+  .detection-showcase {
+    padding: 20px 0;
+  }
+
+  .detection-image {
+    padding: 5px;
+    border-radius: 14px;
+  }
+
+  .detection-image img {
+    border-radius: 10px;
+  }
+}
